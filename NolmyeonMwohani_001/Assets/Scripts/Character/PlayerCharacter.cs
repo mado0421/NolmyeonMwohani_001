@@ -12,14 +12,12 @@ class PlayerCharacter : Character
     //override public void Move()
     override public void Attack() { 
         base.Attack();
-        Debug.Log("attack");
     }
     //override public void Die()
 
     override public void Start()
     {
         base.Start();
-        _weapon = GetComponent<PlayerWeapon>();
 
         _keyDic = new Dictionary<KeyCode, Action>
         {

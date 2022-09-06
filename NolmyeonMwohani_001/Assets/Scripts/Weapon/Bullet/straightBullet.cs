@@ -9,6 +9,6 @@ public class straightBullet : Bullet
 {
     override public void Move()
     {
-        transform.position += transform.forward * Time.deltaTime;
+        transform.position += transform.forward * Time.deltaTime * _spd;
     }
 }

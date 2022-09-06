@@ -17,7 +17,6 @@ abstract class EnemyCharacter : Character
     override public void Start()
     {
         base.Start();
-        _weapon = GetComponent<PlayerWeapon>();
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerCharacter = _player.GetComponent<PlayerCharacter>();
     }

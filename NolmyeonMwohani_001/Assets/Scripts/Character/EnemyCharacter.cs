@@ -24,6 +24,10 @@ abstract class EnemyCharacter : Character
     {
         base.Update();
     }
+    public Character target
+    {
+        get { return _playerCharacter; }
+    }
 
     private Character _playerCharacter;
     private GameObject _player;

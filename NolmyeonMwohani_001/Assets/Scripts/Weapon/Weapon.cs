@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using static UnityEngine.UI.GridLayoutGroup;
 
 public abstract class Weapon : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public abstract class Weapon : MonoBehaviour
     {
         _rps = (1 /_rpm) * 60;
         _firable = true;
+        _owner = transform.parent.GetComponent<Character>();
     }
     public void Attack() 
     {
@@ -33,17 +35,27 @@ public abstract class Weapon : MonoBehaviour
     // 실제로 사용할 숨겨진 Delay 시간
     protected float _rps;
     private bool _firable;
+    //protected Character _owner;
 }
 
 //=============================================================================
 // Melee Weapon
 //=============================================================================
 public abstract class MeleeWeapon : Weapon
-{   // 히트박스를 켜고 끄는 방식으로 충돌 검사? 히트박스는 매번 켜두고 시간마다 검사?
-    // 후자로 하자
+{   // 대상이 거리 안에 들어오면 대상에게 피해를 준다.
+    // 대상을 어떻게 찾는가? 
     override protected void Fire()
     {
+        //_owner.target
+        //_owner.Damage(_dmg);
     }
+    public float range
+    {
+        get { return _range; }
+    }
+
+    [SerializeField] protected float _dmg = 5;
+    [SerializeField] protected float _range = 0.5f;
 }
 
 //=============================================================================
